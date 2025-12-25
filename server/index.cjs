@@ -419,8 +419,8 @@ app.post('/api/appointments', async (req, res) => {
             const customerJid = targetPhone + '@s.whatsapp.net';
 
             // Correct link for Hash Router
-            const reviewLink = `https://yusuftanikhairdesigner.com/#/review?code=${reservationCode}`;
-            const baseCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\n📅 ${date} - ${time}\n✂️ ${displayServiceName}\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n📍 Konum: https://yusuftanikhairdesigner.com\n📞 İletişim: +90 551 063 02 20`;
+            const reviewLink = `https://yusufhairdesigner.com/#/review?code=${reservationCode}`;
+            const baseCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\n📅 ${date} - ${time}\n✂️ ${displayServiceName}\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n📍 Konum: https://yusufhairdesigner.com\n📞 İletişim: +90 551 063 02 20`;
 
             if (customerImageBuffer) {
                 await sock.sendMessage(customerJid, {
