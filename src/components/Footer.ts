@@ -1,19 +1,15 @@
 export const renderFooter = () => `
 <footer class="bg-black py-12 border-t border-brand-gray-800">
-    <div class="container mx-auto px-4 flex flex-col items-center text-center">
-        <!-- Branding -->
-        <h2 class="text-3xl font-serif font-bold text-white mb-2 tracking-widest uppercase">YUSUF TANIK</h2>
-        <p class="text-brand-gray-500 text-sm tracking-[0.3em] uppercase mb-8">Hair Designer & Artist</p>
-
+    <div class="container mx-auto flex flex-col items-center">
         <!-- Social Media Links -->
         <div class="flex gap-6 mb-10">
-            <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://instagram.com/yusuftanwk" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
                 <i class="fab fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
             </a>
-            <a href="https://tiktok.com" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://tiktok.com/@yusuftanwk" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
                 <i class="fab fa-tiktok text-xl group-hover:scale-110 transition-transform"></i>
             </a>
-            <a href="https://wa.me/905438401054" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://wa.me/905321303030" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
                 <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
             </a>
         </div>

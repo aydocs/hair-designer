@@ -23,9 +23,9 @@ export const renderReviewPage = async (app: HTMLElement, router: any) => {
         }
 
         app.innerHTML = `
-        <div class="min-h-screen flex flex-col bg-brand-gray-900 text-white">
+        <div class="h-full min-h-screen flex flex-col bg-brand-gray-900 text-white overflow-y-auto">
             ${renderHeader()}
-            <main class="flex-grow pt-10 pb-20">
+            <main class="flex-grow pt-10 pb-40">
                 <div class="container mx-auto px-4 max-w-2xl">
                     <div class="text-center mb-10">
                         <div class="w-20 h-20 bg-brand-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border border-brand-gray-700">
@@ -35,7 +35,7 @@ export const renderReviewPage = async (app: HTMLElement, router: any) => {
                         <p class="text-brand-gray-400">Görüşleriniz hizmet kalitemizi artırmamız için çok değerli.</p>
                     </div>
 
-                    <div class="bg-brand-black p-8 rounded-3xl border border-brand-gray-800 shadow-2xl">
+                    <div class="bg-brand-black p-8 rounded-3xl border border-brand-gray-800 shadow-2xl mb-10">
                         <form id="review-form" class="space-y-6">
                             <!-- Rating -->
                             <div class="flex flex-col items-center mb-6">
@@ -78,12 +78,14 @@ export const renderReviewPage = async (app: HTMLElement, router: any) => {
                             </div>
 
                             <button type="submit" 
-                                class="w-full bg-gradient-to-r from-brand-gold to-yellow-600 text-black font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-brand-gold/20 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                                <span>GÖNDER</span>
-                                <i class="fas fa-paper-plane"></i>
+                                class="w-full bg-white text-black font-bold py-5 rounded-2xl hover:bg-gray-200 hover:shadow-xl hover:scale-[1.02] transform transition-all duration-300 flex items-center justify-center gap-3 text-lg border-2 border-transparent hover:border-gray-300 mt-8 mb-20 shadow-white/10">
+                                <span>YORUMU GÖNDER</span>
+                                <i class="fas fa-paper-plane text-xl"></i>
                             </button>
                         </form>
                     </div>
+                    <!-- Extra spacer for mobile scrolling -->
+                    <div class="h-32"></div> 
                 </div>
             </main>
             

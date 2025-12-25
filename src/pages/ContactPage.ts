@@ -16,9 +16,14 @@ export const renderContactPage = (app: HTMLElement, router: any) => {
                             <div class="bg-brand-gray-900/50 p-8 rounded-2xl border border-brand-gray-800 hover:border-brand-gray-600 transition-colors">
                                 <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-map-marker-alt text-brand-gray-400 mr-4"></i> Adres</h3>
                                 <p class="text-brand-gray-300 text-lg leading-relaxed">
-                                    Örnek Mahallesi, Kuaförler Caddesi No: 1<br>
-                                    Kadıköy / İstanbul
+                                <p class="text-brand-gray-300 text-lg mb-4">
+                                    Semerciler Mah. Saray Bosna Cad.<br>
+                                    Kadı Sokak No: 2/A<br>
+                                    Adapazarı / Sakarya
                                 </p>
+                                <a href="https://maps.app.goo.gl/jbFVy3qgVb7vx3n37" target="_blank" class="text-brand-gold hover:text-white transition-colors font-medium">
+                                    Haritada Görüntüle <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
                             </div>
 
                             <div class="bg-brand-gray-900/50 p-8 rounded-2xl border border-brand-gray-800 hover:border-brand-gray-600 transition-colors">
