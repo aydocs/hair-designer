@@ -56,117 +56,137 @@ async function connectToWhatsApp() {
                 connectToWhatsApp();
             }
         } else if (update.connection === 'open') {
-            currentQR = null; // Clear QR on success
+            currentQR = null;
             console.log('✅ WhatsApp Bağlantısı BAŞARILI!');
-            console.log(`[Msg] Upsert Type: ${m.type}`);
-            console.log(`[Msg] From: ${sender}, fromMe: ${msg.key.fromMe}`);
-            if (msg.message?.extendedTextMessage || msg.message?.conversation) {
-                console.log(JSON.stringify(msg, null, 2));
+            console.log(`Hazır! Mesajlar otomatik olarak ${OWNER_PHONE} numarasına gidecek.`);
+
+            // Keepalive mechanism: ping every 5 seconds to keep connection alive
+            if (global.keepAliveInterval) {
+                clearInterval(global.keepAliveInterval);
             }
 
-            // Check if message is from ME (the owner) or from the Owner's phone
-            // We must check remoteJidAlt because Baileys sometimes returns the LID (Linked Device ID) for the owner
-            const isFromOwner = (
-                sender === OWNER_PHONE ||
-                msg.key.fromMe ||
-                (msg.key.remoteJidAlt && msg.key.remoteJidAlt === OWNER_PHONE)
-            );
+            global.keepAliveInterval = setInterval(async () => {
+                try {
+                    if (sock && sock.user) {
+                        await sock.sendPresenceUpdate('available');
+                        console.log('[Keepalive] WhatsApp bağlantısı aktif');
+                    }
+                } catch (err) {
+                    console.log('[Keepalive] Ping hatası:', err.message);
+                }
+            }, 5000);
+        }
+    });
 
-            console.log(`[Auth] Is Owner? ${isFromOwner} (Sender: ${sender}, Alt: ${msg.key.remoteJidAlt})`);
+    sock.ev.on('messages.upsert', async (m) => {
+        const msg = m.messages[0];
+        if (!msg.message) return;
 
-            if (isFromOwner) {
-                // Get text content (conversation or extendedTextMessage)
-                const text = msg.message.conversation || msg.message.extendedTextMessage?.text;
+        const sender = msg.key.remoteJid;
+        console.log(`[Msg] Upsert Type: ${m.type}`);
+        console.log(`[Msg] From: ${sender}, fromMe: ${msg.key.fromMe}`);
+        if (msg.message?.extendedTextMessage || msg.message?.conversation) {
+            console.log(JSON.stringify(msg, null, 2));
+        }
 
-                if (text) { // Any text reply to a card is now processed
-                    // Check quoted message
-                    const contextInfo = msg.message.extendedTextMessage?.contextInfo;
-                    if (contextInfo && contextInfo.quotedMessage) {
-                        const quotedCaption = contextInfo.quotedMessage.imageMessage?.caption;
+        // Check if message is from ME (the owner) or from the Owner's phone
+        // We must check remoteJidAlt because Baileys sometimes returns the LID (Linked Device ID) for the owner
+        const isFromOwner = (
+            sender === OWNER_PHONE ||
+            msg.key.fromMe ||
+            (msg.key.remoteJidAlt && msg.key.remoteJidAlt === OWNER_PHONE)
+        );
 
-                        if (quotedCaption && quotedCaption.includes('İletişim:')) {
-                            console.log(`[WhatsApp Auto] Bir karta cevap verildi: "${text}"`);
+        console.log(`[Auth] Is Owner? ${isFromOwner} (Sender: ${sender}, Alt: ${msg.key.remoteJidAlt})`);
 
-                            // Extract phone number
-                            const match = quotedCaption.match(/İletişim:\s*(\d+)/);
-                            if (match && match[1]) {
-                                let customerPhone = match[1].replace(/\D/g, '');
-                                if (customerPhone.startsWith('0')) customerPhone = customerPhone.substring(1);
-                                if (!customerPhone.startsWith('90')) customerPhone = '90' + customerPhone;
-                                const customerJid = customerPhone + '@s.whatsapp.net';
+        if (isFromOwner) {
+            // Get text content (conversation or extendedTextMessage)
+            const text = msg.message.conversation || msg.message.extendedTextMessage?.text;
 
-                                // Determine Cancellation Reason
-                                const keywords = ['RED', 'RET', 'İPTAL', 'IPTAL', 'CANCEL'];
-                                const isStandardCancel = keywords.includes(text.toUpperCase().trim());
+            if (text) { // Any text reply to a card is now processed
+                // Check quoted message
+                const contextInfo = msg.message.extendedTextMessage?.contextInfo;
+                if (contextInfo && contextInfo.quotedMessage) {
+                    const quotedCaption = contextInfo.quotedMessage.imageMessage?.caption;
 
-                                let rejectionReason = "Yoğunluk nedeniyle randevunuz onaylanamamıştır."; // Default
-                                if (!isStandardCancel) {
-                                    rejectionReason = text; // Use the custom reply as reason
-                                }
+                    if (quotedCaption && quotedCaption.includes('İletişim:')) {
+                        console.log(`[WhatsApp Auto] Bir karta cevap verildi: "${text}"`);
 
-                                // --- SLOT RELEASE LOGIC ---
-                                try {
-                                    const currentDb = JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
-                                    const appIndex = currentDb.appointments.findIndex(app => {
-                                        const appPhoneClean = app.customerPhone.replace(/\D/g, '').slice(-10);
-                                        const targetPhoneClean = customerPhone.replace(/\D/g, '').slice(-10);
-                                        return appPhoneClean === targetPhoneClean;
-                                    });
+                        // Extract phone number
+                        const match = quotedCaption.match(/İletişim:\s*(\d+)/);
+                        if (match && match[1]) {
+                            let customerPhone = match[1].replace(/\D/g, '');
+                            if (customerPhone.startsWith('0')) customerPhone = customerPhone.substring(1);
+                            if (!customerPhone.startsWith('90')) customerPhone = '90' + customerPhone;
+                            const customerJid = customerPhone + '@s.whatsapp.net';
 
-                                    if (appIndex !== -1) {
-                                        const removed = currentDb.appointments.splice(appIndex, 1)[0];
-                                        fs.writeFileSync(DB_FILE, JSON.stringify(currentDb, null, 2));
+                            // Determine Cancellation Reason
+                            const keywords = ['RED', 'RET', 'İPTAL', 'IPTAL', 'CANCEL'];
+                            const isStandardCancel = keywords.includes(text.toUpperCase().trim());
 
-                                        // Generate Cancellation Card
-                                        let cancelCard;
-                                        try {
-                                            const service = currentDb.services.find(s => s.id === Number(removed.serviceId));
-                                            const serviceName = service ? service.name : 'Hizmet';
-                                            cancelCard = createCancellationCard({
-                                                customerName: removed.customerName,
-                                                date: removed.date,
-                                                time: removed.time,
-                                                reservationCode: removed.reservationCode
-                                            }, serviceName);
-                                        } catch (e) { console.error('Card gen error', e); }
-
-                                        // 1. Notify Customer
-                                        if (cancelCard) {
-                                            await sock.sendMessage(customerJid, {
-                                                image: cancelCard,
-                                                caption: `❌ Sayın ${removed.customerName}, randevunuz iptal edilmiştir.\n\n🛑 *Sebep:* ${rejectionReason}\n\nLütfen iletişime geçiniz: +90 551 063 02 20`
-                                            });
-                                        } else {
-                                            await sock.sendMessage(customerJid, {
-                                                text: `❌ Sayın ${removed.customerName}, randevunuz iptal edilmiştir.\n🛑 Sebep: ${rejectionReason}`
-                                            });
-                                        }
-
-                                        // 2. Notify Owner (Visual Confirmation)
-                                        const ownerMsg = `✅ İşlem Başarılı.\nRandevu silindi ve müşteriye bildirim yapıldı.\n\n*İletilen Sebep:* ${rejectionReason}`;
-                                        if (cancelCard) {
-                                            await sock.sendMessage(sender, {
-                                                image: cancelCard, // Send the card to owner too
-                                                caption: ownerMsg
-                                            });
-                                        } else {
-                                            await sock.sendMessage(sender, { text: ownerMsg });
-                                        }
-
-                                    } else {
-                                        await sock.sendMessage(sender, { text: `⚠️ Hata: Randevu veritabanında bulunamadı (Zaten silinmiş olabilir).` });
-                                    }
-                                } catch (err) {
-                                    console.error('[WhatsApp Auto] İşlem hatası:', err);
-                                    await sock.sendMessage(sender, { text: '❌ İşlem sırasında sunucu hatası.' });
-                                }
-
-                            } else {
-                                // No phone found in caption
-                                console.log("No phone found in caption");
+                            let rejectionReason = "Yoğunluk nedeniyle randevunuz onaylanamamıştır."; // Default
+                            if (!isStandardCancel) {
+                                rejectionReason = text; // Use the custom reply as reason
                             }
+
+                            // --- SLOT RELEASE LOGIC ---
+                            try {
+                                const currentDb = JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
+                                const appIndex = currentDb.appointments.findIndex(app => {
+                                    const appPhoneClean = app.customerPhone.replace(/\D/g, '').slice(-10);
+                                    const targetPhoneClean = customerPhone.replace(/\D/g, '').slice(-10);
+                                    return appPhoneClean === targetPhoneClean;
+                                });
+
+                                if (appIndex !== -1) {
+                                    const removed = currentDb.appointments.splice(appIndex, 1)[0];
+                                    fs.writeFileSync(DB_FILE, JSON.stringify(currentDb, null, 2));
+
+                                    // Generate Cancellation Card
+                                    let cancelCard;
+                                    try {
+                                        const service = currentDb.services.find(s => s.id === Number(removed.serviceId));
+                                        const serviceName = service ? service.name : 'Hizmet';
+                                        cancelCard = createCancellationCard({
+                                            customerName: removed.customerName,
+                                            date: removed.date,
+                                            time: removed.time,
+                                            reservationCode: removed.reservationCode
+                                        }, serviceName);
+                                    } catch (e) { console.error('Card gen error', e); }
+
+                                    // 1. Notify Customer
+                                    if (cancelCard) {
+                                        await sock.sendMessage(customerJid, {
+                                            image: cancelCard,
+                                            caption: `❌ Sayın ${removed.customerName}, randevunuz iptal edilmiştir.\n\n🛑 *Sebep:* ${rejectionReason}\n\nLütfen iletişime geçiniz: +90 551 063 02 20`
+                                        });
+                                    } else {
+                                        await sock.sendMessage(customerJid, {
+                                            text: `❌ Sayın ${removed.customerName}, randevunuz iptal edilmiştir.\n🛑 Sebep: ${rejectionReason}`
+                                        });
+                                    }
+
+                                    // 2. Notify Owner (Visual Confirmation)
+                                    const ownerMsg = `✅ İşlem Başarılı.\nRandevu silindi ve müşteriye bildirim yapıldı.\n\n*İletilen Sebep:* ${rejectionReason}`;
+                                    if (cancelCard) {
+                                        await sock.sendMessage(sender, {
+                                            image: cancelCard, // Send the card to owner too
+                                            caption: ownerMsg
+                                        });
+                                    } else {
+                                        await sock.sendMessage(sender, { text: ownerMsg });
+                                    }
+
+                                } else {
+                                    await sock.sendMessage(sender, { text: `⚠️ Hata: Randevu veritabanında bulunamadı (Zaten silinmiş olabilir).` });
+                                }
+                            } catch (err) {
+                                console.error('[WhatsApp Auto] İşlem hatası:', err);
+                                await sock.sendMessage(sender, { text: '❌ İşlem sırasında sunucu hatası.' });
+                            }
+
                         } else {
-                            // Quoted message is not a card
                             console.log("Quoted message is not a card");
                         }
                     }
