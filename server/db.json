@@ -36,748 +36,748 @@
       "category": "Cilt Bakımı"
     }
   ],
-  "appointments": [
-    {
-      "id": 1766621278335,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "15:00",
-      "createdAt": "2025-12-25T00:07:58.336Z"
-    },
-    {
-      "id": 1766621389689,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "11:30",
-      "createdAt": "2025-12-25T00:09:49.689Z"
-    },
-    {
-      "id": 1766621488347,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "18:00",
-      "createdAt": "2025-12-25T00:11:28.347Z"
-    },
-    {
-      "id": 1766625082223,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "18:30",
-      "createdAt": "2025-12-25T01:11:22.223Z"
-    },
-    {
-      "id": 1766627160075,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "17:00",
-      "createdAt": "2025-12-25T01:46:00.075Z"
-    },
-    {
-      "id": 1766627212529,
-      "customerName": "ayberk",
-      "customerPhone": "5510630220",
-      "serviceId": 1,
-      "date": "2025-12-25",
-      "time": "17:00",
-      "createdAt": "2025-12-25T01:46:52.529Z"
-    },
-    {
-      "id": 1766627248733,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 3,
-      "date": "2025-12-26",
-      "time": "15:30",
-      "createdAt": "2025-12-25T01:47:28.733Z"
-    },
-    {
-      "id": 1766627302127,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 3,
-      "date": "2025-12-26",
-      "time": "19:30",
-      "createdAt": "2025-12-25T01:48:22.127Z"
-    },
-    {
-      "id": 1766627314742,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 3,
-      "date": "2025-12-26",
-      "time": "19:00",
-      "createdAt": "2025-12-25T01:48:34.742Z"
-    },
-    {
-      "id": 1766627440194,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "11:00",
-      "createdAt": "2025-12-25T01:50:40.194Z"
-    },
-    {
-      "id": 1766627594461,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "12:30",
-      "createdAt": "2025-12-25T01:53:14.461Z"
-    },
-    {
-      "id": 1766627765148,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 3,
-      "date": "2025-12-26",
-      "time": "16:30",
-      "createdAt": "2025-12-25T01:56:05.148Z"
-    },
-    {
-      "id": 1766627875594,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "12:00",
-      "createdAt": "2025-12-25T01:57:55.594Z"
-    },
-    {
-      "id": 1766628087541,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "14:00",
-      "createdAt": "2025-12-25T02:01:27.541Z"
-    },
-    {
-      "id": 1766628302719,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "14:30",
-      "createdAt": "2025-12-25T02:05:02.719Z"
-    },
-    {
-      "id": 1766628672731,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "13:30",
-      "createdAt": "2025-12-25T02:11:12.731Z"
-    },
-    {
-      "id": 1766628763041,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "16:00",
-      "createdAt": "2025-12-25T02:12:43.041Z"
-    },
-    {
-      "id": 1766628785530,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "15:00",
-      "createdAt": "2025-12-25T02:13:05.530Z"
-    },
-    {
-      "id": 1766628918740,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "15:30",
-      "createdAt": "2025-12-25T02:15:18.740Z"
-    },
-    {
-      "id": 1766628986246,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "10:00",
-      "createdAt": "2025-12-25T02:16:26.246Z"
-    },
-    {
-      "id": 1766629141867,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 2,
-      "date": "2025-12-27",
-      "time": "16:00",
-      "createdAt": "2025-12-25T02:19:01.867Z"
-    },
-    {
-      "id": 1766629204470,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 2,
-      "date": "2025-12-27",
-      "time": "17:00",
-      "createdAt": "2025-12-25T02:20:04.470Z"
-    },
-    {
-      "id": 1766629544578,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "14:30",
-      "createdAt": "2025-12-25T02:25:44.578Z"
-    },
-    {
-      "id": 1766629696924,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "19:00",
-      "createdAt": "2025-12-25T02:28:16.924Z"
-    },
-    {
-      "id": 1766629793586,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "10:30",
-      "createdAt": "2025-12-25T02:29:53.586Z"
-    },
-    {
-      "id": 1766629886381,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 3,
-      "date": "2025-12-27",
-      "time": "10:00",
-      "reservationCode": "4278",
-      "createdAt": "2025-12-25T02:31:26.381Z"
-    },
-    {
-      "id": 1766630305262,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "17:30",
-      "reservationCode": "3035",
-      "createdAt": "2025-12-25T02:38:25.262Z"
-    },
-    {
-      "id": 1766630640497,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "17:30",
-      "reservationCode": "2442",
-      "totalPrice": 1150,
-      "createdAt": "2025-12-25T02:44:00.497Z"
-    },
-    {
-      "id": 1766630817408,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "13:00",
-      "reservationCode": "2854",
-      "totalPrice": 550,
-      "createdAt": "2025-12-25T02:46:57.408Z"
-    },
-    {
-      "id": 1766630861815,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "13:30",
-      "reservationCode": "8561",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T02:47:41.815Z"
-    },
-    {
-      "id": 1766630909128,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 4,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        },
-        {
-          "serviceId": 3,
-          "count": 1,
-          "name": "Saç Yıkama & Fön",
-          "price": 150
-        },
-        {
-          "serviceId": 4,
-          "count": 1,
-          "name": "Saç Boyama",
-          "price": 1200
-        },
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "19:30",
-      "reservationCode": "5088",
-      "totalPrice": 3750,
-      "createdAt": "2025-12-25T02:48:29.128Z"
-    },
-    {
-      "id": 1766631055827,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        },
-        {
-          "serviceId": 4,
-          "count": 1,
-          "name": "Saç Boyama",
-          "price": 1200
-        },
-        {
-          "serviceId": 3,
-          "count": 1,
-          "name": "Saç Yıkama & Fön",
-          "price": 150
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        },
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 5,
-      "date": "2025-12-27",
-      "time": "18:30",
-      "reservationCode": "8232",
-      "totalPrice": 2700,
-      "createdAt": "2025-12-25T02:50:55.827Z"
-    },
-    {
-      "id": 1766631072794,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        }
-      ],
-      "serviceId": 5,
-      "date": "2025-12-27",
-      "time": "16:30",
-      "reservationCode": "5701",
-      "totalPrice": 800,
-      "createdAt": "2025-12-25T02:51:12.794Z"
-    },
-    {
-      "id": 1766631477192,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        },
-        {
-          "serviceId": 3,
-          "count": 1,
-          "name": "Saç Yıkama & Fön",
-          "price": 150
-        },
-        {
-          "serviceId": 4,
-          "count": 1,
-          "name": "Saç Boyama",
-          "price": 1200
-        },
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "14:00",
-      "reservationCode": "YT30MO",
-      "totalPrice": 2700,
-      "createdAt": "2025-12-25T02:57:57.192Z"
-    },
-    {
-      "id": 1766631556601,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-31",
-      "time": "14:30",
-      "reservationCode": "YT42CO",
-      "totalPrice": 550,
-      "createdAt": "2025-12-25T02:59:16.601Z"
-    },
-    {
-      "id": 1766631843416,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "18:00",
-      "reservationCode": "YT76NJ",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:04:03.416Z"
-    },
-    {
-      "id": 1766631973297,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-30",
-      "time": "15:00",
-      "reservationCode": "YT69PQ",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:06:13.297Z"
-    },
-    {
-      "id": 1766632139102,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "11:30",
-      "reservationCode": "YT93NS",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:08:59.102Z"
-    },
-    {
-      "id": 1766632345112,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "11:00",
-      "reservationCode": "YT34VA",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:12:25.112Z"
-    },
-    {
-      "id": 1766632457453,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-26",
-      "time": "13:00",
-      "reservationCode": "YT20XP",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:14:17.453Z"
-    },
-    {
-      "id": 1766632674997,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-27",
-      "time": "12:00",
-      "reservationCode": "YT77MO",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T03:17:54.997Z"
-    },
-    {
-      "id": 1766633618766,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 5,
-          "count": 1,
-          "name": "Cilt Bakımı",
-          "price": 800
-        },
-        {
-          "serviceId": 4,
-          "count": 1,
-          "name": "Saç Boyama",
-          "price": 1200
-        },
-        {
-          "serviceId": 3,
-          "count": 1,
-          "name": "Saç Yıkama & Fön",
-          "price": 150
-        },
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        },
-        {
-          "serviceId": 2,
-          "count": 1,
-          "name": "Sakal Kesimi",
-          "price": 200
-        }
-      ],
-      "serviceId": 5,
-      "date": "2025-12-27",
-      "time": "12:30",
-      "reservationCode": "YT95UB",
-      "totalPrice": 2700,
-      "createdAt": "2025-12-25T03:33:38.766Z"
-    },
-    {
-      "id": 1766636156930,
-      "customerName": "ayberk",
-      "customerPhone": "05510630220",
-      "services": [
-        {
-          "serviceId": 1,
-          "count": 1,
-          "name": "Saç Kesimi",
-          "price": 350
-        }
-      ],
-      "serviceId": 1,
-      "date": "2025-12-31",
-      "time": "19:30",
-      "reservationCode": "YT50JW",
-      "totalPrice": 350,
-      "createdAt": "2025-12-25T04:15:56.930Z"
-    }
-  ],
-  "settings": {
-    "startHour": 10,
-    "endHour": 20,
-    "timeInterval": 30
+  "appointments": [],
+  {
+    "id": 1766621278335,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "15:00",
+    "createdAt": "2025-12-25T00:07:58.336Z"
   },
-  "reviews": [
-    {
-      "id": 1766631116047,
-      "appointmentId": 1766631072794,
-      "customerName": "Ayberk Cihan",
-      "rating": 5,
-      "comment": "evet",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T02:51:56.063Z"
-    },
-    {
-      "id": 1766631761470,
-      "appointmentId": 1766631556601,
-      "customerName": "Ayberk Cihan",
-      "rating": 3,
-      "comment": "ada",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:02:41.486Z"
-    },
-    {
-      "id": 1766631870460,
-      "appointmentId": 1766631843416,
-      "customerName": "dasada",
-      "rating": 3,
-      "comment": "dasdas",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:04:30.483Z"
-    },
-    {
-      "id": 1766631992808,
-      "appointmentId": 1766631973297,
-      "customerName": "Ayberk Cihan",
-      "rating": 4,
-      "comment": "adsda",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:06:32.823Z"
-    },
-    {
-      "id": 1766632155395,
-      "appointmentId": 1766632139102,
-      "customerName": "ayberk",
-      "rating": 5,
-      "comment": "ada",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:09:15.411Z"
-    },
-    {
-      "id": 1766632372819,
-      "appointmentId": 1766632345112,
-      "customerName": "ayberk",
-      "rating": 5,
-      "comment": "dDASDFAdDASDFAdDASDFAdDASDFAdDASDFA",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:12:52.836Z"
-    },
-    {
-      "id": 1766632477906,
-      "appointmentId": 1766632457453,
-      "customerName": "ayberk",
-      "rating": 5,
-      "comment": "ADDDDAD",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:14:37.923Z"
-    },
-    {
-      "id": 1766632694172,
-      "appointmentId": 1766632674997,
-      "customerName": "ayberk",
-      "rating": 5,
-      "comment": "dffff",
-      "date": "25.12.2025",
-      "createdAt": "2025-12-25T03:18:14.187Z"
-    }
-  ]
+  {
+    "id": 1766621389689,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "11:30",
+    "createdAt": "2025-12-25T00:09:49.689Z"
+  },
+  {
+    "id": 1766621488347,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "18:00",
+    "createdAt": "2025-12-25T00:11:28.347Z"
+  },
+  {
+    "id": 1766625082223,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "18:30",
+    "createdAt": "2025-12-25T01:11:22.223Z"
+  },
+  {
+    "id": 1766627160075,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "17:00",
+    "createdAt": "2025-12-25T01:46:00.075Z"
+  },
+  {
+    "id": 1766627212529,
+    "customerName": "ayberk",
+    "customerPhone": "5510630220",
+    "serviceId": 1,
+    "date": "2025-12-25",
+    "time": "17:00",
+    "createdAt": "2025-12-25T01:46:52.529Z"
+  },
+  {
+    "id": 1766627248733,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 3,
+    "date": "2025-12-26",
+    "time": "15:30",
+    "createdAt": "2025-12-25T01:47:28.733Z"
+  },
+  {
+    "id": 1766627302127,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 3,
+    "date": "2025-12-26",
+    "time": "19:30",
+    "createdAt": "2025-12-25T01:48:22.127Z"
+  },
+  {
+    "id": 1766627314742,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 3,
+    "date": "2025-12-26",
+    "time": "19:00",
+    "createdAt": "2025-12-25T01:48:34.742Z"
+  },
+  {
+    "id": 1766627440194,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "11:00",
+    "createdAt": "2025-12-25T01:50:40.194Z"
+  },
+  {
+    "id": 1766627594461,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "12:30",
+    "createdAt": "2025-12-25T01:53:14.461Z"
+  },
+  {
+    "id": 1766627765148,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 3,
+    "date": "2025-12-26",
+    "time": "16:30",
+    "createdAt": "2025-12-25T01:56:05.148Z"
+  },
+  {
+    "id": 1766627875594,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "12:00",
+    "createdAt": "2025-12-25T01:57:55.594Z"
+  },
+  {
+    "id": 1766628087541,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "14:00",
+    "createdAt": "2025-12-25T02:01:27.541Z"
+  },
+  {
+    "id": 1766628302719,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "14:30",
+    "createdAt": "2025-12-25T02:05:02.719Z"
+  },
+  {
+    "id": 1766628672731,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "13:30",
+    "createdAt": "2025-12-25T02:11:12.731Z"
+  },
+  {
+    "id": 1766628763041,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "16:00",
+    "createdAt": "2025-12-25T02:12:43.041Z"
+  },
+  {
+    "id": 1766628785530,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "15:00",
+    "createdAt": "2025-12-25T02:13:05.530Z"
+  },
+  {
+    "id": 1766628918740,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "15:30",
+    "createdAt": "2025-12-25T02:15:18.740Z"
+  },
+  {
+    "id": 1766628986246,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "10:00",
+    "createdAt": "2025-12-25T02:16:26.246Z"
+  },
+  {
+    "id": 1766629141867,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 2,
+    "date": "2025-12-27",
+    "time": "16:00",
+    "createdAt": "2025-12-25T02:19:01.867Z"
+  },
+  {
+    "id": 1766629204470,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 2,
+    "date": "2025-12-27",
+    "time": "17:00",
+    "createdAt": "2025-12-25T02:20:04.470Z"
+  },
+  {
+    "id": 1766629544578,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "14:30",
+    "createdAt": "2025-12-25T02:25:44.578Z"
+  },
+  {
+    "id": 1766629696924,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "19:00",
+    "createdAt": "2025-12-25T02:28:16.924Z"
+  },
+  {
+    "id": 1766629793586,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "10:30",
+    "createdAt": "2025-12-25T02:29:53.586Z"
+  },
+  {
+    "id": 1766629886381,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 3,
+    "date": "2025-12-27",
+    "time": "10:00",
+    "reservationCode": "4278",
+    "createdAt": "2025-12-25T02:31:26.381Z"
+  },
+  {
+    "id": 1766630305262,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "17:30",
+    "reservationCode": "3035",
+    "createdAt": "2025-12-25T02:38:25.262Z"
+  },
+  {
+    "id": 1766630640497,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "17:30",
+    "reservationCode": "2442",
+    "totalPrice": 1150,
+    "createdAt": "2025-12-25T02:44:00.497Z"
+  },
+  {
+    "id": 1766630817408,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "13:00",
+    "reservationCode": "2854",
+    "totalPrice": 550,
+    "createdAt": "2025-12-25T02:46:57.408Z"
+  },
+  {
+    "id": 1766630861815,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "13:30",
+    "reservationCode": "8561",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T02:47:41.815Z"
+  },
+  {
+    "id": 1766630909128,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 4,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      },
+      {
+        "serviceId": 3,
+        "count": 1,
+        "name": "Saç Yıkama & Fön",
+        "price": 150
+      },
+      {
+        "serviceId": 4,
+        "count": 1,
+        "name": "Saç Boyama",
+        "price": 1200
+      },
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "19:30",
+    "reservationCode": "5088",
+    "totalPrice": 3750,
+    "createdAt": "2025-12-25T02:48:29.128Z"
+  },
+  {
+    "id": 1766631055827,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      },
+      {
+        "serviceId": 4,
+        "count": 1,
+        "name": "Saç Boyama",
+        "price": 1200
+      },
+      {
+        "serviceId": 3,
+        "count": 1,
+        "name": "Saç Yıkama & Fön",
+        "price": 150
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      },
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 5,
+    "date": "2025-12-27",
+    "time": "18:30",
+    "reservationCode": "8232",
+    "totalPrice": 2700,
+    "createdAt": "2025-12-25T02:50:55.827Z"
+  },
+  {
+    "id": 1766631072794,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      }
+    ],
+    "serviceId": 5,
+    "date": "2025-12-27",
+    "time": "16:30",
+    "reservationCode": "5701",
+    "totalPrice": 800,
+    "createdAt": "2025-12-25T02:51:12.794Z"
+  },
+  {
+    "id": 1766631477192,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      },
+      {
+        "serviceId": 3,
+        "count": 1,
+        "name": "Saç Yıkama & Fön",
+        "price": 150
+      },
+      {
+        "serviceId": 4,
+        "count": 1,
+        "name": "Saç Boyama",
+        "price": 1200
+      },
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "14:00",
+    "reservationCode": "YT30MO",
+    "totalPrice": 2700,
+    "createdAt": "2025-12-25T02:57:57.192Z"
+  },
+  {
+    "id": 1766631556601,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-31",
+    "time": "14:30",
+    "reservationCode": "YT42CO",
+    "totalPrice": 550,
+    "createdAt": "2025-12-25T02:59:16.601Z"
+  },
+  {
+    "id": 1766631843416,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "18:00",
+    "reservationCode": "YT76NJ",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:04:03.416Z"
+  },
+  {
+    "id": 1766631973297,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-30",
+    "time": "15:00",
+    "reservationCode": "YT69PQ",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:06:13.297Z"
+  },
+  {
+    "id": 1766632139102,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "11:30",
+    "reservationCode": "YT93NS",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:08:59.102Z"
+  },
+  {
+    "id": 1766632345112,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "11:00",
+    "reservationCode": "YT34VA",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:12:25.112Z"
+  },
+  {
+    "id": 1766632457453,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-26",
+    "time": "13:00",
+    "reservationCode": "YT20XP",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:14:17.453Z"
+  },
+  {
+    "id": 1766632674997,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-27",
+    "time": "12:00",
+    "reservationCode": "YT77MO",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T03:17:54.997Z"
+  },
+  {
+    "id": 1766633618766,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 5,
+        "count": 1,
+        "name": "Cilt Bakımı",
+        "price": 800
+      },
+      {
+        "serviceId": 4,
+        "count": 1,
+        "name": "Saç Boyama",
+        "price": 1200
+      },
+      {
+        "serviceId": 3,
+        "count": 1,
+        "name": "Saç Yıkama & Fön",
+        "price": 150
+      },
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      },
+      {
+        "serviceId": 2,
+        "count": 1,
+        "name": "Sakal Kesimi",
+        "price": 200
+      }
+    ],
+    "serviceId": 5,
+    "date": "2025-12-27",
+    "time": "12:30",
+    "reservationCode": "YT95UB",
+    "totalPrice": 2700,
+    "createdAt": "2025-12-25T03:33:38.766Z"
+  },
+  {
+    "id": 1766636156930,
+    "customerName": "ayberk",
+    "customerPhone": "05510630220",
+    "services": [
+      {
+        "serviceId": 1,
+        "count": 1,
+        "name": "Saç Kesimi",
+        "price": 350
+      }
+    ],
+    "serviceId": 1,
+    "date": "2025-12-31",
+    "time": "19:30",
+    "reservationCode": "YT50JW",
+    "totalPrice": 350,
+    "createdAt": "2025-12-25T04:15:56.930Z"
+  }
+],
+"settings": {
+  "startHour": 10,
+  "endHour": 20,
+  "timeInterval": 30
+},
+"reviews": [
+  {
+    "id": 1766631116047,
+    "appointmentId": 1766631072794,
+    "customerName": "Ayberk Cihan",
+    "rating": 5,
+    "comment": "evet",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T02:51:56.063Z"
+  },
+  {
+    "id": 1766631761470,
+    "appointmentId": 1766631556601,
+    "customerName": "Ayberk Cihan",
+    "rating": 3,
+    "comment": "ada",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:02:41.486Z"
+  },
+  {
+    "id": 1766631870460,
+    "appointmentId": 1766631843416,
+    "customerName": "dasada",
+    "rating": 3,
+    "comment": "dasdas",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:04:30.483Z"
+  },
+  {
+    "id": 1766631992808,
+    "appointmentId": 1766631973297,
+    "customerName": "Ayberk Cihan",
+    "rating": 4,
+    "comment": "adsda",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:06:32.823Z"
+  },
+  {
+    "id": 1766632155395,
+    "appointmentId": 1766632139102,
+    "customerName": "ayberk",
+    "rating": 5,
+    "comment": "ada",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:09:15.411Z"
+  },
+  {
+    "id": 1766632372819,
+    "appointmentId": 1766632345112,
+    "customerName": "ayberk",
+    "rating": 5,
+    "comment": "dDASDFAdDASDFAdDASDFAdDASDFAdDASDFA",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:12:52.836Z"
+  },
+  {
+    "id": 1766632477906,
+    "appointmentId": 1766632457453,
+    "customerName": "ayberk",
+    "rating": 5,
+    "comment": "ADDDDAD",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:14:37.923Z"
+  },
+  {
+    "id": 1766632694172,
+    "appointmentId": 1766632674997,
+    "customerName": "ayberk",
+    "rating": 5,
+    "comment": "dffff",
+    "date": "25.12.2025",
+    "createdAt": "2025-12-25T03:18:14.187Z"
+  }
+]
 }
