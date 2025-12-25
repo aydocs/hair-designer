@@ -305,14 +305,14 @@ app.post('/api/appointments', async (req, res) => {
     const resolvedServices = services.map(item => {
         const srv = db.services.find(s => s.id === Number(item.serviceId));
         if (srv) {
-            serviceNames.push(`${srv.name} (${item.count})`);
+            serviceNames.push(`${srv.name} - ${srv.price}₺`);
             totalPrice += srv.price * item.count;
             return { ...item, name: srv.name, price: srv.price };
         }
         return item;
     });
 
-    const displayServiceName = serviceNames.join(', '); // "Saç Kesimi (1), Sakal (1)"
+    const displayServiceName = serviceNames.join('\n') + `\n\nTOPLAM: ${totalPrice}₺`; // New Line formatted for readability
 
     const newAppointment = {
         id: Date.now(),
