@@ -344,13 +344,23 @@ export const renderBookingWizard = async (container: HTMLElement) => {
 
                 try {
                     Swal.fire({ title: 'İşleniyor...', didOpen: () => Swal.showLoading(), background: '#1f2937', color: '#fff' });
-                    await createAppointment({
-                        customerName: state.customerName,
-                        customerPhone: state.customerPhone,
-                        services: servicesList,
-                        date: state.date!,
-                        time: state.time!
+                    const response = await fetch('https://hair-designer.onrender.com/api/appointments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            customerName: state.customerName,
+                            customerPhone: state.customerPhone,
+                            services: servicesList,
+                            date: state.date!,
+                            time: state.time!
+                        })
                     });
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || 'Randevu oluşturulurken bir hata oluştu.');
+                    }
                     Swal.close();
                     state.step = 4;
                     render();
