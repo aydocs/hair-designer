@@ -347,31 +347,42 @@ app.post('/api/appointments', async (req, res) => {
     // Send Automatic WhatsApp Messages
     try {
         if (sock) {
-            // A. Send to OWNER (Admin Card)
+            // A. Send to OWNER (Admin Card or Fallback Text)
             if (ownerImageBuffer) {
                 await sock.sendMessage(OWNER_PHONE, {
                     image: ownerImageBuffer,
-                    caption: `📞 İletişim: ${customerPhone}\n🔑 Kod: ${reservationCode}`
+                    caption: `📞 İletişim: ${customerPhone}\n🔑 Kod: ${reservationCode}\n\n${displayServiceName}`
                 });
                 console.log(`[WhatsApp Auto] Yöneticiye Admin Kartı gönderildi.`);
+            } else {
+                // Fallback Text
+                await sock.sendMessage(OWNER_PHONE, {
+                    text: `⚠️ YENİ RANDEVU (Kartsız)\n\n👤 ${customerName}\n📞 ${customerPhone}\n📅 ${date} ⏰ ${time}\n✂️ ${displayServiceName}\n🔑 Kod: ${reservationCode}`
+                });
+                console.log(`[WhatsApp Auto] Yöneticiye TEXT (Fallback) gönderildi.`);
             }
 
-            // B. Send to CUSTOMER (Customer Card)
+            // B. Send to CUSTOMER (Customer Card or Fallback Text)
             let targetPhone = customerPhone.replace(/\D/g, '');
             if (targetPhone.startsWith('0')) targetPhone = targetPhone.substring(1);
             if (!targetPhone.startsWith('90')) targetPhone = '90' + targetPhone;
             const customerJid = targetPhone + '@s.whatsapp.net';
 
-            if (customerImageBuffer) {
-                // Correct link for Hash Router: /#/review?code=YT...
-                const reviewLink = `https://yusuftanikhairdesigner.com/#/review?code=${reservationCode}`;
-                const messageCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n\n📍 Adres ve Konum: https://yusuftanikhairdesigner.com\n📞 İletişim: +90 551 063 02 20`;
+            // Correct link for Hash Router
+            const reviewLink = `https://yusuftanikhairdesigner.com/#/review?code=${reservationCode}`;
+            const baseCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\n📅 ${date} - ${time}\n✂️ ${displayServiceName}\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n📍 Konum: https://yusuftanikhairdesigner.com\n📞 İletişim: +90 551 063 02 20`;
 
+            if (customerImageBuffer) {
                 await sock.sendMessage(customerJid, {
                     image: customerImageBuffer,
-                    caption: messageCaption
+                    caption: baseCaption
                 });
                 console.log(`[WhatsApp Auto] Müşteriye Davetiye Kartı gönderildi.`);
+            } else {
+                await sock.sendMessage(customerJid, {
+                    text: baseCaption
+                });
+                console.log(`[WhatsApp Auto] Müşteriye TEXT (Fallback) gönderildi.`);
             }
         } else {
             console.log('[WhatsApp Auto] Socket bağlı değil, mesaj gönderilemedi.');
