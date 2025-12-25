@@ -420,7 +420,7 @@ app.post('/api/appointments', async (req, res) => {
 
             // Correct link for Hash Router
             const reviewLink = `https://yusufhairdesigner.com/#/review?code=${reservationCode}`;
-            const baseCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\n📅 ${date} - ${time}\n✂️ ${displayServiceName}\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n📍 Konum: https://yusufhairdesigner.com\n📞 İletişim: +90 551 063 02 20`;
+            const baseCaption = `🎉 Sayın ${customerName}, randevunuz başarıyla oluşturulmuştur.\n\n📅 ${date} - ${time}\n✂️ ${displayServiceName}\n\nKeyifli bir deneyim için sizi bekliyoruz.\n\n⭐ Değerlendirme: ${reviewLink}\n📍 Konum: https://yusufhairdesigner.com\n📞 İletişim: +90 543 840 10 54`;
 
             if (customerImageBuffer) {
                 await sock.sendMessage(customerJid, {
