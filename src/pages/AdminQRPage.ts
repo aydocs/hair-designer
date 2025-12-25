@@ -1,5 +1,6 @@
 import { renderHeader, initMobileMenu } from '../components/Header';
 import QRCode from 'qrcode';
+import { API_BASE_URL } from '../config';
 
 export const renderAdminQRPage = (app: HTMLElement, router: any) => {
     app.innerHTML = `
@@ -49,7 +50,7 @@ export const renderAdminQRPage = (app: HTMLElement, router: any) => {
             if (statusMsg) statusMsg.textContent = 'Bağlanılıyor...';
 
             try {
-                const res = await fetch(`http://localhost:3000/api/admin/qr?password=${password}`);
+                const res = await fetch(`https://hair-designer.onrender.com/api/admin/qr?password=${password}`);
 
                 if (res.status === 403) {
                     if (statusMsg) {
