@@ -19,6 +19,7 @@ initDatabase();
 const router = new Navigo('/', { hash: true });
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
+console.log('App Version: 2025-12-25-FIX-URL-HARDCODED'); // Cache Buster
 
 router
     .on('/', () => {
