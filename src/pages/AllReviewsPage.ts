@@ -41,7 +41,7 @@ export const renderAllReviewsPage = async (app: HTMLElement, router: any) => {
                             </div>
                             <span class="text-brand-gray-600 text-xs">${r.date}</span>
                         </div>
-                        <p class="text-brand-gray-300 mb-6 italic leading-relaxed">"${r.comment}"</p>
+                        <p class="text-brand-gray-300 mb-6 italic leading-relaxed break-words overflow-wrap-anywhere">"${r.comment}"</p>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-brand-gray-800 flex items-center justify-center text-white font-bold">
                                 ${r.customerName.charAt(0).toUpperCase()}
