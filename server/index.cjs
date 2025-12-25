@@ -22,12 +22,23 @@ let currentQR = null; // Store the latest QR code string
 
 // Admin Endpoint to get QR Code
 app.get('/api/admin/qr', (req, res) => {
-    const { password } = req.query;
-    if (password === 'yusufhair') {
-        res.json({ success: true, qr: currentQR, connected: !currentQR });
-    } else {
-        res.status(403).json({ success: false, message: 'Unauthorized' });
+    const password = req.query.password;
+    if (password !== 'yusufhair') {
+        return res.status(403).json({ error: 'Unauthorized' });
     }
+
+    // Check if WhatsApp is actually connected
+    if (sock && sock.user) {
+        return res.json({ connected: true, message: 'WhatsApp zaten bağlı' });
+    }
+
+    // If QR code is available, send it
+    if (currentQR) {
+        return res.json({ qr: currentQR, connected: false });
+    }
+
+    // No QR yet
+    res.json({ connected: false, message: 'QR kod henüz oluşmadı' });
 });
 
 async function connectToWhatsApp() {
