@@ -2,7 +2,6 @@ const { createCanvas, loadImage } = require('canvas');
 const fs = require('fs');
 const path = require('path');
 
-// Helper: Wrap Text
 // Helper: Wrap Text with Max Height Truncation
 function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxHeight) {
     const words = text.split(' ');
@@ -23,7 +22,6 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxHeight) {
         if (testWidth > maxWidth && n > 0) {
             // Check max height before printing new line
             if (maxHeight && (currentY - startY + lineHeight) > maxHeight) {
-                // Truncate
                 const lastLine = line.trim() + '...';
                 ctx.fillText(lastLine, x, currentY);
                 return currentY + lineHeight;
@@ -36,10 +34,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxHeight) {
             line = testLine;
         }
     }
-    // Print last line if within bounds (roughly)
-    if (!maxHeight || (currentY - startY) <= maxHeight) {
-        ctx.fillText(line, x, currentY);
-    }
+    // Print last line
+    ctx.fillText(line, x, currentY);
     return currentY + lineHeight;
 }
 
@@ -60,111 +56,133 @@ function drawRoundedRect(ctx, x, y, width, height, radius) {
     ctx.stroke();
 }
 
+// Helper: Draw Gold Badge / Circle
+function drawGoldBadge(ctx, x, y, radius, text, subtext) {
+    // Outer Glow
+    const gradient = ctx.createRadialGradient(x, y, radius * 0.8, x, y, radius * 1.2);
+    gradient.addColorStop(0, '#FFD700');
+    gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, radius * 1.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Circle Body
+    ctx.fillStyle = '#111';
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Gold Border
+    ctx.strokeStyle = '#FFD700';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    // Text
+    ctx.fillStyle = '#FFD700';
+    ctx.textAlign = 'center';
+
+    if (subtext) {
+        ctx.font = 'bold 24px Arial';
+        ctx.fillText(text, x, y - 10);
+        ctx.fillStyle = '#FFF';
+        ctx.font = 'bold 40px Courier New';
+        ctx.fillText(subtext, x, y + 35);
+    } else {
+        ctx.font = 'bold 36px Arial';
+        ctx.fillText(text, x, y + 10);
+    }
+}
+
+// Helper: Draw Premium Header
+function drawPremiumHeader(ctx, width, title, subtitle) {
+    // Dark Header Background
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, width, 250);
+
+    // Gold separator line
+    ctx.fillStyle = '#FFD700';
+    ctx.fillRect(0, 245, width, 5);
+
+    // Title
+    ctx.fillStyle = '#FFF';
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 60px "Times New Roman"';
+    ctx.fillText(title, width / 2, 120);
+
+    if (subtitle) {
+        ctx.fillStyle = '#BBB';
+        ctx.font = 'italic 30px Arial';
+        ctx.fillText(subtitle, width / 2, 180);
+    }
+}
+
 // ---------------------------------------------------------
-// 1. ADMIN CARD (Mobile Dashboard Style)
+// 1. ADMIN CARD (Premium Dark Dashboard)
 // ---------------------------------------------------------
 function createAdminCard(appointment, serviceName) {
     const width = 800;
-    const height = 1200; // Vertical Mobile Format
+    const height = 1200;
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // Background: Dark Dashboard
+    // Background: Deep Rich Black
     const grad = ctx.createLinearGradient(0, 0, 0, height);
-    grad.addColorStop(0, '#121212');
-    grad.addColorStop(1, '#1E1E1E');
+    grad.addColorStop(0, '#1a1a1a');
+    grad.addColorStop(1, '#000000');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
 
-    // Header Pattern
-    ctx.fillStyle = '#1a1a1a';
-    for (let i = 0; i < height; i += 20) {
-        ctx.fillRect(0, i, width, 1);
-    }
-    for (let i = 0; i < width; i += 20) {
-        ctx.fillRect(i, 0, 1, height);
-    }
+    drawPremiumHeader(ctx, width, 'YENİ RANDEVU', 'Yönetici Paneli Bildirimi');
 
-    // Top Header
-    ctx.fillStyle = '#FFD700'; // Gold
-    ctx.fillRect(0, 0, width, 100);
-
-    ctx.fillStyle = '#000';
-    ctx.font = 'bold 40px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('YENİ RANDEVU', width / 2, 65);
-
-    // Reservation Code Badge (Floating)
-    const codeY = 150;
-    drawRoundedRect(ctx, width / 2 - 150, codeY, 300, 80, 40);
-    ctx.fillStyle = '#333';
-    ctx.fill();
-    ctx.strokeStyle = '#FFD700';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    ctx.fillStyle = '#FFD700';
-    ctx.font = 'bold 50px Courier New';
-    ctx.textAlign = 'center';
-    ctx.fillText(appointment.reservationCode, width / 2, codeY + 55);
-
-    // ---------------- INFO CARD ----------------
-    const cardY = 280;
-    const cardH = 750;
+    // Content Box
+    const boxY = 300;
+    const boxH = 800;
     const padding = 50;
 
-    ctx.fillStyle = '#252525';
-    ctx.strokeStyle = '#444';
-    drawRoundedRect(ctx, padding, cardY, width - (padding * 2), cardH, 30);
+    // Glass effect box
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+    ctx.strokeStyle = '#333';
+    drawRoundedRect(ctx, padding, boxY, width - 100, boxH, 30);
 
-    let textY = cardY + 80;
-    const labelX = padding + 40;
-    const valueX = padding + 220; // Indent for values
+    let textY = boxY + 100;
+    const labelX = padding + 50;
+    const valueX = padding + 50;
 
     ctx.textAlign = 'left';
 
-    // Customer
-    ctx.fillStyle = '#888'; ctx.font = '30px Arial'; ctx.fillText('Müşteri', labelX, textY);
-    ctx.fillStyle = '#FFF'; ctx.font = 'bold 36px Arial';
-    ctx.fillText(appointment.customerName.toUpperCase(), labelX, textY + 45);
+    // 1. Customer
+    ctx.fillStyle = '#888'; ctx.font = '24px Arial'; ctx.fillText('MÜŞTERİ', labelX, textY);
+    ctx.fillStyle = '#FFF'; ctx.font = 'bold 45px Arial'; ctx.fillText(appointment.customerName, valueX, textY + 50);
 
-    textY += 120;
+    textY += 140;
 
-    // Phone
-    ctx.fillStyle = '#888'; ctx.font = '30px Arial'; ctx.fillText('Telefon', labelX, textY);
-    ctx.fillStyle = '#FFF'; ctx.font = 'bold 36px Arial';
-    ctx.fillText(appointment.customerPhone, labelX, textY + 45);
+    // 2. Phone
+    ctx.fillStyle = '#888'; ctx.font = '24px Arial'; ctx.fillText('TELEFON', labelX, textY);
+    ctx.fillStyle = '#FFD700'; ctx.font = 'bold 45px Monospace'; ctx.fillText(appointment.customerPhone, valueX, textY + 50);
 
-    textY += 120;
+    textY += 140;
 
-    // Date/Time
-    ctx.fillStyle = '#888'; ctx.font = '30px Arial'; ctx.fillText('Tarih & Saat', labelX, textY);
-    ctx.fillStyle = '#4CAF50'; ctx.font = 'bold 36px Arial';
-    ctx.fillText(`${appointment.date}`, labelX, textY + 45);
-    ctx.fillStyle = '#FFF';
-    ctx.fillText(`${appointment.time}`, labelX + 250, textY + 45);
+    // 3. Date & Time
+    ctx.fillStyle = '#888'; ctx.font = '24px Arial'; ctx.fillText('TARİH VE SAAT', labelX, textY);
+    ctx.fillStyle = '#FFF'; ctx.font = 'bold 40px Arial';
+    ctx.fillText(`${appointment.date}  |  ${appointment.time}`, valueX, textY + 50);
 
-    textY += 120;
+    textY += 140;
 
-    // Services (Wrapping)
-    ctx.fillStyle = '#888'; ctx.font = '30px Arial'; ctx.fillText('Hizmetler', labelX, textY);
-    ctx.fillStyle = '#FFD700'; ctx.font = 'bold 32px Arial';
+    // 4. Services
+    ctx.fillStyle = '#888'; ctx.font = '24px Arial'; ctx.fillText('HİZMETLER', labelX, textY);
+    ctx.fillStyle = '#EEE'; ctx.font = '30px Arial';
+    wrapText(ctx, serviceName, valueX, textY + 50, width - 150, 40, 200);
 
-    // Wrap service text
-    wrapText(ctx, serviceName, labelX, textY + 45, width - (labelX + padding + 20), 45);
-
-    // Footer Help Text
-    ctx.fillStyle = '#555';
-    ctx.font = 'italic 24px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('İptal için mesaja "RED" yazarak cevaplayın.', width / 2, height - 50);
+    // Reservation Code Badge
+    drawGoldBadge(ctx, width - 120, 360, 80, 'KOD', appointment.reservationCode);
 
     return canvas.toBuffer('image/png');
 }
 
-
 // ---------------------------------------------------------
-// 2. CUSTOMER CARD (Premium Mobile App Ticket)
+// 2. CUSTOMER CARD (Existing Premium Design - Kept as Reference)
 // ---------------------------------------------------------
 function createCustomerCard(appointment, serviceName) {
     const width = 800;
@@ -194,19 +212,7 @@ function createCustomerCard(appointment, serviceName) {
 
     // Reservation Code (Circle Badge)
     const badgeY = 400;
-    ctx.beginPath();
-    ctx.arc(width / 2, badgeY, 100, 0, Math.PI * 2);
-    ctx.fillStyle = '#FFD700';
-    ctx.fill();
-    ctx.strokeStyle = '#FFF';
-    ctx.lineWidth = 10;
-    ctx.stroke();
-
-    ctx.fillStyle = '#000';
-    ctx.font = 'bold 24px Arial';
-    ctx.fillText('KOD', width / 2, badgeY - 20);
-    ctx.font = 'bold 60px Courier New';
-    ctx.fillText(appointment.reservationCode, width / 2, badgeY + 35);
+    drawGoldBadge(ctx, width / 2, badgeY, 100, 'KOD', appointment.reservationCode);
 
     // ---------------- DETAILS SECTION ----------------
     const startY = 600;
@@ -238,41 +244,18 @@ function createCustomerCard(appointment, serviceName) {
     ctx.fillStyle = '#000';
     ctx.font = 'bold 32px Arial';
 
-    // We expect serviceName to be potentially long
-    const maxWidth = width - 100;
-
-    // Custom wrapper for centered text
-    const words = serviceName.split(' ');
-    let line = '';
-    let currentY = serviceY;
-    const lineHeight = 50;
-
-    for (let n = 0; n < words.length; n++) {
-        const testLine = line + words[n] + ' ';
-        const metrics = ctx.measureText(testLine);
-        const testWidth = metrics.width;
-        if (testWidth > maxWidth && n > 0) {
-            ctx.fillText(line.toUpperCase(), width / 2, currentY);
-            line = words[n] + ' ';
-            currentY += lineHeight;
-        } else {
-            line = testLine;
-        }
-    }
-    ctx.fillText(line.toUpperCase(), width / 2, currentY);
+    wrapText(ctx, serviceName.toUpperCase(), width / 2, serviceY, width - 100, 50);
 
     // Footer
     ctx.fillStyle = '#888';
     ctx.font = '24px Arial';
-    ctx.fillText('Yusuf Tanık Hair Designer', width / 2, height - 60);
-    ctx.font = '20px Arial';
-    ctx.fillText('Adresiniz, Şehir', width / 2, height - 30);
+    ctx.fillText('Serdivan, Sakarya', width / 2, height - 50);
 
     return canvas.toBuffer('image/png');
 }
 
 // ---------------------------------------------------------
-// 3. CANCELLATION CARD
+// 3. CANCELLATION CARD (Premium Dark Red)
 // ---------------------------------------------------------
 function createCancellationCard(appointment, serviceName) {
     const width = 800;
@@ -280,47 +263,61 @@ function createCancellationCard(appointment, serviceName) {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
+    // Background: Dark Red Gradient
     const grad = ctx.createLinearGradient(0, 0, 0, height);
-    grad.addColorStop(0, '#500000');
-    grad.addColorStop(1, '#200000');
+    grad.addColorStop(0, '#2b0000');
+    grad.addColorStop(1, '#111111');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
 
-    ctx.strokeStyle = '#FF0000';
-    ctx.lineWidth = 20;
+    // Border
+    ctx.strokeStyle = '#800000';
+    ctx.lineWidth = 10;
     ctx.strokeRect(0, 0, width, height);
 
-    // Large X Icon
-    ctx.fillStyle = '#FF0000';
+    drawPremiumHeader(ctx, width, 'RANDEVU İPTALİ', 'Yusuf Tanık Hair Designer');
+
+    // Large X Icon inside Circle
+    const iconY = 400;
     ctx.beginPath();
-    ctx.arc(width / 2, 300, 100, 0, Math.PI * 2);
+    ctx.arc(width / 2, iconY, 80, 0, Math.PI * 2);
+    ctx.fillStyle = '#800000';
     ctx.fill();
     ctx.strokeStyle = '#FFF';
-    ctx.lineWidth = 15;
-    ctx.beginPath();
-    ctx.moveTo(width / 2 - 50, 250); ctx.lineTo(width / 2 + 50, 350);
-    ctx.moveTo(width / 2 + 50, 250); ctx.lineTo(width / 2 - 50, 350);
+    ctx.lineWidth = 5;
     ctx.stroke();
 
+    ctx.strokeStyle = '#FFF';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(width / 2 - 30, iconY - 30); ctx.lineTo(width / 2 + 30, iconY + 30);
+    ctx.moveTo(width / 2 + 30, iconY - 30); ctx.lineTo(width / 2 - 30, iconY + 30);
+    ctx.stroke();
+
+    // Text
     ctx.fillStyle = '#FFF';
     ctx.textAlign = 'center';
-    ctx.font = 'bold 50px Arial';
-    ctx.fillText('İPTAL EDİLDİ', width / 2, 500);
+
+    ctx.font = 'bold 45px Arial';
+    ctx.fillText('RANDEVUNUZ İPTAL EDİLDİ', width / 2, 580);
 
     ctx.fillStyle = '#CCC';
     ctx.font = '30px Arial';
-    ctx.fillText(appointment.customerName, width / 2, 600);
-    ctx.fillText(`${appointment.date} - ${appointment.time}`, width / 2, 650);
+    ctx.fillText(`Sayın ${appointment.customerName}`, width / 2, 650);
 
-    // Service wrap
-    ctx.font = 'italic 28px Arial';
-    wrapText(ctx, serviceName, width / 2, 720, width - 100, 40);
+    const infoY = 750;
+    ctx.fillStyle = '#666';
+    ctx.font = '26px Arial';
+    ctx.fillText('Tarih ve Saat:', width / 2, infoY);
+    ctx.fillStyle = '#FF4444';
+    ctx.font = 'bold 40px Arial';
+    ctx.fillText(`${appointment.date} - ${appointment.time}`, width / 2, infoY + 50);
 
     return canvas.toBuffer('image/png');
 }
 
 // ---------------------------------------------------------
-// 4. REVIEW CARD
+// 4. REVIEW CARD (Gold Standard)
 // ---------------------------------------------------------
 function createReviewCard(appointment) {
     const width = 800;
@@ -328,54 +325,54 @@ function createReviewCard(appointment) {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
+    // Background: Elegant Dark Blue/Black
     const grad = ctx.createLinearGradient(0, 0, 0, height);
-    grad.addColorStop(0, '#0f2027');
-    grad.addColorStop(1, '#2c5364');
+    grad.addColorStop(0, '#0F172A'); // Slate 900
+    grad.addColorStop(1, '#000000');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
 
-    // Stars
-    ctx.fillStyle = '#FFF';
-    for (let i = 0; i < 50; i++) {
-        ctx.beginPath();
-        const x = Math.random() * width;
-        const y = Math.random() * height;
-        const size = Math.random() * 3;
-        ctx.arc(x, y, size, 0, Math.PI * 2);
-        ctx.fill();
+    drawPremiumHeader(ctx, width, 'DEĞERLENDİRME', 'Hizmet Kalitemizi Puanlayın');
+
+    // Stars Visual
+    const starY = 400;
+    const starTotal = 5;
+    const gap = 110;
+    const startX = (width - ((starTotal - 1) * gap)) / 2;
+
+    for (let i = 0; i < 5; i++) {
+        drawStar(ctx, startX + (i * gap), starY, 5, 40, 20, '#FFD700');
     }
 
-    ctx.fillStyle = '#FFD700';
-    ctx.textAlign = 'center';
-    ctx.font = 'bold 80px Arial';
-    ctx.fillText('★★★★★', width / 2, 300);
-
+    // Main Text
     ctx.fillStyle = '#FFF';
+    ctx.textAlign = 'center';
     ctx.font = 'bold 50px Arial';
-    ctx.fillText('Memnun Kaldınız mı?', width / 2, 450);
+    ctx.fillText('Nasıl Buldunuz?', width / 2, 550);
 
-    ctx.font = '30px Arial';
-    ctx.fillText('Bize bir puan verin', width / 2, 520);
+    ctx.fillStyle = '#AAA';
+    ctx.font = '28px Arial';
+    ctx.fillText('Deneyiminizi bizimle paylaşın', width / 2, 600);
 
-    // Code
-    const boxY = 700;
-    ctx.fillStyle = 'rgba(255,255,255,0.1)';
-    ctx.fillRect(100, boxY, width - 200, 150);
+    // Code Box
+    const boxY = 720;
+    ctx.fillStyle = 'rgba(255, 215, 0, 0.1)';
     ctx.strokeStyle = '#FFD700';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(100, boxY, width - 200, 150);
+    ctx.lineWidth = 3;
+    drawRoundedRect(ctx, 150, boxY, width - 300, 150, 20);
 
     ctx.fillStyle = '#FFD700';
-    ctx.font = 'bold 70px Courier New';
-    ctx.fillText(appointment.reservationCode, width / 2, boxY + 100);
+    ctx.font = '24px Arial';
+    ctx.fillText('ONAY KODUNUZ', width / 2, boxY + 50);
+    ctx.font = 'bold 60px Courier New';
+    ctx.fillText(appointment.reservationCode, width / 2, boxY + 110);
 
     return canvas.toBuffer('image/png');
 }
 
 // ---------------------------------------------------------
-// 5. REVIEW RESULT CARD (For Owner - Feedback Summary)
+// 5. REVIEW RESULT CARD (Feedback Showcase)
 // ---------------------------------------------------------
-// Helper: Draw Star Shape
 function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, color) {
     let rot = Math.PI / 2 * 3;
     let x = cx;
@@ -401,66 +398,54 @@ function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, color) {
     ctx.fill();
 }
 
-// ---------------------------------------------------------
-// 5. REVIEW RESULT CARD (For Owner - Feedback Summary)
-// ---------------------------------------------------------
 function createReviewResultCard(reviewData) {
     const width = 800;
     const height = 1000;
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // 1. Background: Premium Black/Dark Gray
+    // 1. Background: Premium Black
     const grad = ctx.createLinearGradient(0, 0, 0, height);
     grad.addColorStop(0, '#111111');
-    grad.addColorStop(1, '#2c3e50'); // Dark slate gray
+    grad.addColorStop(1, '#222222');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
 
-    // 2. Header
-    ctx.fillStyle = '#FFFFFF';
-    ctx.textAlign = 'center';
-    ctx.font = 'bold 45px Arial'; // Increased size
-    ctx.fillText('YENİ MÜŞTERİ YORUMU', width / 2, 100);
+    drawPremiumHeader(ctx, width, 'YENİ YORUM', 'Müşteri Geri Bildirimi');
 
-    // 3. Stars (Vector Drawing to avoid Font Issues)
+    // 3. Stars 
     const starTotal = 5;
     const starScore = reviewData.rating;
-    const starSize = 40; // Radius
+    const starSize = 40;
     const gap = 100;
     const startX = (width - (gap * (starTotal - 1))) / 2;
 
+    const starsY = 320;
     for (let i = 0; i < starTotal; i++) {
-        const color = i < starScore ? '#FFFFFF' : '#444444'; // White filled, Gray empty
-        drawStar(ctx, startX + (i * gap), 220, 5, starSize, starSize / 2, color);
+        const color = i < starScore ? '#FFD700' : '#444444';
+        drawStar(ctx, startX + (i * gap), starsY, 5, starSize, starSize / 2, color);
     }
 
     // 4. Comment Box
-    const boxY = 320;
+    const boxY = 420;
     const boxH = 400;
 
-    // Glassmorphism effect
     ctx.fillStyle = 'rgba(255,255,255,0.05)';
     drawRoundedRect(ctx, 50, boxY, width - 100, boxH, 30);
-    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.strokeStyle = 'rgba(255,215,0,0.3)';
     ctx.lineWidth = 2;
     ctx.strokeRect(50, boxY, width - 100, boxH);
 
     // 5. Comment Text
-    ctx.fillStyle = '#E0E0E0';
-    ctx.font = 'italic 32px Arial';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'italic 36px "Times New Roman"';
     ctx.textAlign = 'center';
     wrapText(ctx, `"${reviewData.comment}"`, width / 2, boxY + 100, width - 160, 50, 300);
 
     // 6. Author
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 40px Arial';
-    ctx.fillText(reviewData.customerName, width / 2, boxY + boxH + 70);
-
-    // 7. Footer / Date
-    ctx.fillStyle = '#888888';
-    ctx.font = '24px Arial';
-    ctx.fillText(`Tarih: ${reviewData.date}`, width / 2, height - 60);
+    ctx.fillStyle = '#FFD700';
+    ctx.font = 'bold 36px Arial';
+    ctx.fillText(reviewData.customerName, width / 2, boxY + boxH + 60);
 
     return canvas.toBuffer('image/png');
 }
