@@ -273,7 +273,7 @@ export const renderBookingWizard = async (container: HTMLElement) => {
                     locale: Turkish,
                     minDate: "today",
                     disable: [(date) => date.getDay() === 0],
-                    onChange: async (selectedDate, dateStr) => {
+                    onChange: async (selectedDates, dateStr) => {
                         state.date = dateStr;
                         state.time = null;
                         const slotsContainer = container.querySelector('#slots-container');
