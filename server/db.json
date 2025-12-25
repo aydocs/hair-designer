@@ -4,35 +4,35 @@
       "id": 1,
       "name": "Saç Kesimi",
       "duration": 45,
-      "price": 350,
+      "price": 600,
       "category": "Saç İşlemleri"
     },
     {
       "id": 2,
       "name": "Sakal Kesimi",
       "duration": 30,
-      "price": 200,
+      "price": 350,
       "category": "Sakal İşlemleri"
     },
     {
       "id": 3,
       "name": "Saç Yıkama & Fön",
       "duration": 20,
-      "price": 150,
+      "price": 300,
       "category": "Bakım ve Yıkama"
     },
     {
       "id": 4,
-      "name": "Saç Boyama",
-      "duration": 120,
-      "price": 1200,
-      "category": "Renklendirme"
+      "name": "Fön",
+      "duration": 15,
+      "price": 250,
+      "category": "Bakım ve Yıkama"
     },
     {
       "id": 5,
       "name": "Cilt Bakımı",
       "duration": 60,
-      "price": 800,
+      "price": 300,
       "category": "Cilt Bakımı"
     }
   ],
