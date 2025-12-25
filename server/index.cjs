@@ -12,6 +12,8 @@ const app = express();
 const PORT = 3000;
 const DB_FILE = path.join(__dirname, 'db.json');
 const OWNER_PHONE = '905438401054@s.whatsapp.net'; // Baileys format
+const EPHEMERAL_48H = 48 * 60 * 60; // 48 hours in seconds for disappearing messages
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -397,13 +399,15 @@ app.post('/api/appointments', async (req, res) => {
             if (ownerImageBuffer) {
                 await sock.sendMessage(OWNER_PHONE, {
                     image: ownerImageBuffer,
-                    caption: `📞 İletişim: ${customerPhone}\n🔑 Kod: ${reservationCode}\n\n${displayServiceName}`
+                    caption: `📞 İletişim: ${customerPhone}\n🔑 Kod: ${reservationCode}\n\n${displayServiceName}`,
+                    ephemeralExpiration: EPHEMERAL_48H
                 });
                 console.log(`[WhatsApp Auto] Yöneticiye Admin Kartı gönderildi.`);
             } else {
                 // Fallback Text
                 await sock.sendMessage(OWNER_PHONE, {
-                    text: `⚠️ YENİ RANDEVU (Kartsız)\n\n👤 ${customerName}\n📞 ${customerPhone}\n📅 ${date} ⏰ ${time}\n✂️ ${displayServiceName}\n🔑 Kod: ${reservationCode}`
+                    text: `⚠️ YENİ RANDEVU (Kartsız)\n\n👤 ${customerName}\n📞 ${customerPhone}\n📅 ${date} ⏰ ${time}\n✂️ ${displayServiceName}\n🔑 Kod: ${reservationCode}`,
+                    ephemeralExpiration: EPHEMERAL_48H
                 });
                 console.log(`[WhatsApp Auto] Yöneticiye TEXT (Fallback) gönderildi.`);
             }
@@ -421,12 +425,14 @@ app.post('/api/appointments', async (req, res) => {
             if (customerImageBuffer) {
                 await sock.sendMessage(customerJid, {
                     image: customerImageBuffer,
-                    caption: baseCaption
+                    caption: baseCaption,
+                    ephemeralExpiration: EPHEMERAL_48H
                 });
                 console.log(`[WhatsApp Auto] Müşteriye Davetiye Kartı gönderildi.`);
             } else {
                 await sock.sendMessage(customerJid, {
-                    text: baseCaption
+                    text: baseCaption,
+                    ephemeralExpiration: EPHEMERAL_48H
                 });
                 console.log(`[WhatsApp Auto] Müşteriye TEXT (Fallback) gönderildi.`);
             }
