@@ -344,9 +344,39 @@ app.post('/api/appointments', async (req, res) => {
 
     // ... Send messages (code handling below remains similar)
 
+    // Helper: Wait for connection to be ready
+    const waitForConnection = (timeout = 5000) => {
+        return new Promise((resolve, reject) => {
+            if (!sock) return reject('Socket not initialized');
+
+            // Check if already connected
+            if (sock.user) return resolve(true);
+
+            const timeoutId = setTimeout(() => {
+                reject('Connection timeout');
+            }, timeout);
+
+            // Wait for next connection.update
+            const checkConnection = (update) => {
+                if (update.connection === 'open' && sock.user) {
+                    clearTimeout(timeoutId);
+                    sock.ev.off('connection.update', checkConnection);
+                    resolve(true);
+                }
+            };
+            sock.ev.on('connection.update', checkConnection);
+        });
+    };
+
     // Send Automatic WhatsApp Messages
     try {
-        if (sock) {
+        // Wait for stable connection before sending
+        await waitForConnection().catch(err => {
+            console.log('[WhatsApp Auto] Bağlantı bekleniyor, mesaj kuyruğa alınıyor...');
+            throw new Error('WhatsApp bağlantısı hazır değil. Lütfen birkaç saniye sonra tekrar deneyin.');
+        });
+
+        if (sock && sock.user) {
             // A. Send to OWNER (Admin Card or Fallback Text)
             if (ownerImageBuffer) {
                 await sock.sendMessage(OWNER_PHONE, {
@@ -389,6 +419,7 @@ app.post('/api/appointments', async (req, res) => {
         }
     } catch (err) {
         console.error('[WhatsApp Auto] Mesaj hatası:', err);
+        // Don't throw error to frontend - appointment is still saved
     }
 
     res.status(201).json({
