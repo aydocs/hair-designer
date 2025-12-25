@@ -24,9 +24,9 @@ export const renderContactPage = (app: HTMLElement, router: any) => {
                             <div class="bg-brand-gray-900/50 p-8 rounded-2xl border border-brand-gray-800 hover:border-brand-gray-600 transition-colors">
                                 <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-phone-alt text-brand-gray-400 mr-4"></i> Telefon</h3>
                                 <p class="text-brand-gray-300 text-lg mb-4">
-                                    <a href="tel:+905510630220" class="hover:text-white transition-colors block py-2">+90 551 063 02 20</a>
+                                    <a href="tel:+905438401054" class="hover:text-white transition-colors block py-2">+90 543 840 10 54</a>
                                 </p>
-                                <a href="https://wa.me/905510630220" target="_blank" class="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-colors">
+                                <a href="https://wa.me/905438401054" target="_blank" class="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-colors">
                                     <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp'tan Yazın
                                 </a>
                             </div>

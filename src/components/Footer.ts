@@ -13,7 +13,7 @@ export const renderFooter = () => `
             <a href="https://tiktok.com" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
                 <i class="fab fa-tiktok text-xl group-hover:scale-110 transition-transform"></i>
             </a>
-            <a href="https://wa.me/905510630220" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://wa.me/905438401054" target="_blank" class="w-12 h-12 rounded-full bg-brand-gray-900 border border-brand-gray-800 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
                 <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
             </a>
         </div>

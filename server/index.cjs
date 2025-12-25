@@ -11,7 +11,7 @@ const { createAdminCard, createCustomerCard, createCancellationCard, createRevie
 const app = express();
 const PORT = 3000;
 const DB_FILE = path.join(__dirname, 'db.json');
-const OWNER_PHONE = '905510630220@s.whatsapp.net'; // Baileys format
+const OWNER_PHONE = '905438401054@s.whatsapp.net'; // Baileys format
 
 app.use(cors());
 app.use(bodyParser.json());
