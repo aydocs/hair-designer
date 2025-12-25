@@ -17,7 +17,7 @@ export const renderContactPage = (app: HTMLElement, router: any) => {
                                 <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-map-marker-alt text-brand-gray-400 mr-4"></i> Adres</h3>
                                 <p class="text-brand-gray-300 text-lg leading-relaxed">
                                     Örnek Mahallesi, Kuaförler Caddesi No: 1<br>
-                                    Kadıköy / İstaanbul
+                                    Kadıköy / İstanbul
                                 </p>
                             </div>
 
