@@ -1,5 +1,6 @@
 import { renderHeader, initMobileMenu } from '../components/Header';
 import { renderFooter } from '../components/Footer';
+import { API_BASE_URL } from '../config';
 import Swal from 'sweetalert2';
 
 export const renderReviewPage = async (app: HTMLElement, router: any) => {
@@ -95,7 +96,7 @@ export const renderReviewPage = async (app: HTMLElement, router: any) => {
 
         // Auto-fill Name if Code Exists (Must be AFTER rendering HTML)
         if (reservationCode) {
-            fetch(`http://localhost:3000/api/appointment-details/${reservationCode}`)
+            fetch(`https://hair-designer.onrender.com/api/appointment-details/${reservationCode}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.success && data.customerName) {
@@ -153,7 +154,7 @@ export const renderReviewPage = async (app: HTMLElement, router: any) => {
             }
 
             try {
-                const res = await fetch('http://localhost:3000/api/reviews', {
+                const res = await fetch(`https://hair-designer.onrender.com/api/reviews`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)

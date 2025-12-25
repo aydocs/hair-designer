@@ -1,5 +1,6 @@
 import { renderHeader, initMobileMenu } from '../components/Header';
 import { renderFooter } from '../components/Footer';
+import { API_BASE_URL } from '../config';
 
 export const renderAllReviewsPage = async (app: HTMLElement, router: any) => {
     app.innerHTML = `
@@ -24,7 +25,7 @@ export const renderAllReviewsPage = async (app: HTMLElement, router: any) => {
     initMobileMenu();
 
     try {
-        const res = await fetch('http://localhost:3000/api/reviews');
+        const res = await fetch(`https://hair-designer.onrender.com/api/reviews`);
         const reviews = await res.json();
 
         const container = app.querySelector('#all-reviews-list');

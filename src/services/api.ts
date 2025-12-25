@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3000/api';
+// import { API_BASE_URL } from '../config';
+
+const API_URL = `https://hair-designer.onrender.com/api`;
 
 export interface Service {
     id: number;
